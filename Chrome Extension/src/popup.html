@@ -1,0 +1,84 @@
+<!--------------------------------------------------------------------------------------------
+
+Copyright (c) 2012 Amr Tj. Wallas
+
+Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License:
+	http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Project home:
+	https://github.com/TjWallas/YouTube-Lite-Embed
+
+Website:
+	http://tjwallas.weebly.com
+
+Version: 1.0
+
+--------------------------------------------------------------------------------------------->
+
+<style>
+body {
+  min-width:200px;
+  overflow-x:hidden;
+}
+</style>
+
+<script>
+var w = "640px";
+var h = "360px";
+
+// Copy text to the Clipboard function
+// uses 'url' input element to select text
+// parameters: text - text to be copied to the clipboard
+function copyToClipboard(text)
+{
+  	bg = chrome.extension.getBackgroundPage();
+	clipboardholder= bg.document.getElementById("clipboardholder");
+	clipboardholder.style.display = "block";
+	clipboardholder.value = text;
+	clipboardholder.select();
+	bg.document.execCommand("Copy");
+	clipboardholder.style.display = "none";
+	document.write('<style>body {  min-width:200px;  overflow-x:hidden;}</style><body><font color="green">Lite Embed Code Successfully Copied.</font></body>');
+}
+
+function validate() {
+	var reg = /^\d+(px|%)$/;
+	var validated = w.match(reg) && h.match(reg);
+	if (validated) 
+		chrome.tabs.getSelected(null,function(tab) {
+    		var video_id = tab.url.split('v=')[1];
+			if(!video_id || tab.url.indexOf('youtube.com') == -1) {
+				document.write('<style>body {  min-width:200px;  overflow-x:hidden;}</style><body><font color="red">Sorry. You need to be at the YouTube video\'s page.</font></body>');
+				return;
+			}
+			var ampersandPosition = video_id.indexOf('&');
+			if(ampersandPosition != -1) {
+  				video_id = video_id.substring(0, ampersandPosition);
+			}
+			var txt = '<div class="lite" id="'+video_id+'" style="width:'+w+';height:'+h+';"></div>';
+			//document.write('<input type="text" id="url" style="display:none;"></input>');
+			copyToClipboard(txt);
+		});
+	else
+		document.getElementById('maDiv').innerHTML += '<br><font color="red">Sorry. Width and height values can only be like [number]px or [number]%</font>';		
+}
+
+function setValues() {
+	w = document.getElementById('width').value;
+	h = document.getElementById('height').value;	
+}
+// Called when the user clicks on the browser action.
+  /*chrome.tabs.executeScript(
+      null, {code:validate()});*/
+</script>
+
+<body>
+<div id="maDiv">
+<label for="width">Width:   </label>
+<input type="text" id="width" value="640px" />
+<br />
+<label for="height">Height: </label>
+<input type="text" id="height" value="360px" />
+<input type="button" value="OK" onclick="setValues();validate();" />
+</div>
+</body>
