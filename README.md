@@ -34,3 +34,5 @@ Usage
    	Where:
 	* `youtube_video_id` is the id of that video. (Typically, the value after 'v=' in the URL)
 	* `my_width` and `my_height` are the width and height of the embedded player in either pixels (Ex: 360px) or percetage (Ex: 50%).
+
+    **Alternatively, you can install [this chrome extension](https://github.com/TjWallas/YouTube-Lite-Embed/raw/master/Chrome%20Extension/YouTube%20Minified%20Embed.crx) that I coded which will automatically copy the aforementioned special markup code to your clipboard whenever you click it's icon whilst being at a youtube video page.**
