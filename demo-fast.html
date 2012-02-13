@@ -1,8 +1,18 @@
 <html>
 	<head>
-		<title>YouTube Lite Embed Demo</title>
+		<title>YouTube Lite Embed Demo</title>		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.lazyload.min.js"></script>		
+		<script type="text/javascript" src="jquery.lazyload.min.js"></script>	
+		<script type="text/javascript" src="lite-youtube.js"></script>
+		<style>
+			div.lite {
+				position: relative; left: 0; top: 0
+			}
+
+			img.lite:hover {
+				background:url(http://lh5.googleusercontent.com/-oBFjswrosz4/TuHqainRc3I/AAAAAAAAAbE/t3rMQuSJdLA/s800/youtube-play-button-hover.png)
+			}
+		</style>
 	</head>
 
 	<body>		
@@ -44,15 +54,5 @@
 		<br />
 		<div class="lite" id="QYBs_lslyuY" style="width:640px;height:360px;"></div>
 		<!-- TODO: Add more divs then benchmark -->
-	</body>
-	<style>
-		div.lite {
-			position: relative; left: 0; top: 0
-		}
-
-		img.lite:hover {
-			background:url(http://lh5.googleusercontent.com/-oBFjswrosz4/TuHqainRc3I/AAAAAAAAAbE/t3rMQuSJdLA/s800/youtube-play-button-hover.png)
-		}
-	</style>
-	<script type="text/javascript" src="lite-youtube.js"></script>
+	</body>		
 </html>
