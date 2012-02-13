@@ -36,3 +36,116 @@ Usage
 	* `my_width` and `my_height` are the width and height of the embedded player in either pixels (Ex: 360px) or percetage (Ex: 50%).
 
     **Alternatively, you can install [this chrome extension](https://github.com/TjWallas/YouTube-Lite-Embed/raw/master/Chrome%20Extension/YouTube%20Minified%20Embed.crx) that I coded which will automatically copy the aforementioned special markup code to your clipboard whenever you click it's icon whilst being at a youtube video page.**
+
+Demos
+=====
+*    A demo page consisting of 10 YouTube videos while using the lite embed library can be found [here (fast embed demo)](http://eminemvirus2010.mypagerocks.com/demo-fast.html)
+*    An equivalent demo page to it **WITHOUT** the library can be found [here (slow embed demo)](http://eminemvirus2010.mypagerocks.com/demo-slow.html)
+
+Benchmarks
+==========
+The best way to test it out is to check the demos above. You'll instantly feel the difference especially if you are a *nix user.
+
+> "There are three types of lies: lies, damned lies and benchmarks"
+
+That being said, let's get down to the results =)
+
+Without the lite embed library, the page took **7.539s** to fully load *without caching*. On the other hand, the page took only **4.437s** to load using the library under the same benchmark configuration. This is almost **1.7x** performance speedup. (PS: this was only tested on a page that has 10 videos. Try it with more videos and be impressed)
+
+*    Benchmark summary *using the library*:
+
+     <table id="tableResults" class="pretty" align="center" border="1" cellpadding="10" cellspacing="0">
+                    <tr>
+                    <th align="center" class="empty" valign="middle" style="border:1px white solid;"></th>
+                    <th align="center" class="empty" valign="middle" colspan="3"></th>
+                    <th align="center" class="border" valign="middle" colspan="3">Document Complete</th>
+                    <th align="center" class="border" valign="middle" colspan="3">Fully Loaded</th>
+                    </tr>
+                    <tr>
+                    <th align="center" class="empty" valign="middle"></th>
+                    <th align="center" valign="middle">Load Time</th>
+                    <th align="center" valign="middle">First Byte</th>
+                    <th align="center" valign="middle">Start Render</th>                                                                                                
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="middle">First View
+                         </td><td id="fvLoadTime" valign="middle">1.437s</td>
+<td id="fvTTFB" valign="middle">0.216s</td>
+<td id="fvStartRender" valign="middle">1.050s</td>
+<td id="fvDocComplete" class="border" valign="middle">1.437s</td>
+<td id="fvRequestsDoc" valign="middle">17</td>
+<td id="fvBytesDoc" valign="middle">75 KB</td>
+<td id="fvFullyLoaded" class="border" valign="middle">4.437s</td>
+<td id="fvRequests" valign="middle">19</td>
+<td id="fvBytes" valign="middle">76 KB</td>
+                    </tr>
+                                        <tr>
+                        <td align="left" class="even" valign="middle">Repeat View
+                         </td><td id="rvLoadTime" class="even" valign="middle">0.589s</td>
+<td id="rvTTFB" class="even" valign="middle">0.215s</td>
+<td id="rvStartRender" class="even" valign="middle">0.581s</td>
+<td id="rvDocComplete" class="even border" valign="middle">0.589s</td>
+<td id="rvRequestsDoc" class="even" valign="middle">4</td>
+<td id="rvBytesDoc" class="even" valign="middle">3 KB</td>
+<td id="rvFullyLoaded" class="even border" valign="middle">0.880s</td>
+<td id="rvRequests" class="even" valign="middle">12</td>
+<td id="rvBytes" class="even" valign="middle">5 KB</td>
+                    </tr>
+                                        </table>
+
+*    Benchmark summary *without the library*:
+
+     <table id="tableResults" class="pretty" align="center" border="1" cellpadding="10" cellspacing="0">
+         <tr>
+         <th align="center" class="empty" valign="middle" style="border:1px white solid;"></th>
+         <th align="center" class="empty" valign="middle" colspan="3"></th>
+         <th align="center" class="border" valign="middle" colspan="3">Document Complete</th>
+         <th align="center" class="border" valign="middle" colspan="3">Fully Loaded</th>
+         </tr>
+         <tr>
+         <th align="center" class="empty" valign="middle"></th>
+         <th align="center" valign="middle">Load Time</th>
+         <th align="center" valign="middle">First Byte</th>
+         <th align="center" valign="middle">Start Render</th>                                     
+         <th align="center" class="border" valign="middle">Time</th>
+         <th align="center" valign="middle">Requests</th>
+         <th align="center" valign="middle">Bytes In</th>
+         <th align="center" class="border" valign="middle">Time</th>
+         <th align="center" valign="middle">Requests</th>
+         <th align="center" valign="middle">Bytes In</th>
+         </tr>
+         <tr>
+                        <td align="left" valign="middle">First View
+                         </td><td id="fvLoadTime" valign="middle">1.345s</td>
+<td id="fvTTFB" valign="middle">0.215s</td>
+<td id="fvStartRender" valign="middle">0.000s</td>
+<td id="fvDocComplete" class="border" valign="middle">1.345s</td>
+<td id="fvRequestsDoc" valign="middle">2</td>
+<td id="fvBytesDoc" valign="middle">38 KB</td>
+<td id="fvFullyLoaded" class="border" valign="middle">7.539s</td>
+<td id="fvRequests" valign="middle">28</td>
+<td id="fvBytes" valign="middle">602 KB</td>
+                    </tr>
+                                        <tr>
+                        <td align="left" class="even" valign="middle">Repeat View
+                         </td><td id="rvLoadTime" class="even" valign="middle">0.700s</td>
+<td id="rvTTFB" class="even" valign="middle">0.115s</td>
+<td id="rvStartRender" class="even" valign="middle">0.000s</td>
+<td id="rvDocComplete" class="even border" valign="middle">0.700s</td>
+<td id="rvRequestsDoc" class="even" valign="middle">1</td>
+<td id="rvBytesDoc" class="even" valign="middle">5 KB</td>
+<td id="rvFullyLoaded" class="even border" valign="middle">4.472s</td>
+<td id="rvRequests" class="even" valign="middle">13</td>
+<td id="rvBytes" class="even" valign="middle">41 KB</td>
+                    </tr>
+                                        </table>
+
+*    Detailed results can be fount at [link1](http://www.webpagetest.org/result/120213_7Z_37AS0/) and [link2](http://www.webpagetest.org/result/120213_YK_37AM7/) for the "Using the library" and "Without the library" scenarios respectively.
+
+
