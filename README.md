@@ -13,7 +13,11 @@ Usage
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="jquery.lazyload.min.js"></script>
 
-2.	Add the following CSS Rules:
+2.	import the "YouTube Lite Embed" Plugin:
+
+		<script type="text/javascript" src="lite-youtube-min.js"></script>
+
+3.	Add the following CSS Rules:
 
     	<style>
 			div.lite {
@@ -23,10 +27,6 @@ Usage
 				background:url(http://lh5.googleusercontent.com/-oBFjswrosz4/TuHqainRc3I/AAAAAAAAAbE/t3rMQuSJdLA/s800/youtube-play-button-hover.png)
 			}
 		</style>
-
-3.	import the "YouTube Lite Embed Plugin":
-
-		<script type="text/javascript" src="lite-youtube.js"></script>
 
 4.	Finally, you can simply embed a youtube video anywhere using the following markup:
 
