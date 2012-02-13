@@ -44,7 +44,7 @@ $('div.lite').each(function() {
 	$(myDiv).append(a.append(img,'<img class="lite" src="http://lh4.googleusercontent.com/-QCeB6REIFlE/TuGUlY3N46I/AAAAAAAAAaI/9-urEUtpKcI/s800/youtube-play-button.png" style="position: absolute; top: 50%; left: 45%;" />'));	
 
 	$.getJSON('http://gdata.youtube.com/feeds/api/videos/'+vid+'?v=2&fields=id,title&alt=json', function(data) {		
-		this.innerHTML+='<div style="position:relative;margin:-'+h+' 5px;padding:5px;background-color:rgba(0,0,0,0.3);-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px"><span style="font-weight:bold;font-size:16px;color:#ffffff;font-family:sans-serif;text-align:left;">'+data.entry.title.$t+'</span></div>';		
+		$(myDiv).append('<div style="position:relative;margin:-'+h+' 5px;padding:5px;background-color:rgba(0,0,0,0.3);-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px"><span style="font-weight:bold;font-size:16px;color:#ffffff;font-family:sans-serif;text-align:left;">'+data.entry.title.$t+'</span></div>');		
 		});
 	});
 	return false;
