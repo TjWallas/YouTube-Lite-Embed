@@ -19,12 +19,12 @@
 
 function YTLiteEmbed() {
 $('div.lite').each(function() {	
-	myDiv = this;
-	vid = this.id;
-	w = this.style.width;
-	h = this.style.height;
+	var myDiv = this;
+	var vid = this.id;
+	var w = this.style.width;
+	var h = this.style.height;
 
-	img = $(document.createElement('img'));
+	var img = $(document.createElement('img'));
 	img.attr({'class': 'lazy',
 			'data-original': 'http://img.youtube.com/vi/'+vid+'/0.jpg',
 			'width': w,
@@ -35,7 +35,7 @@ $('div.lite').each(function() {
     	effect : "fadeIn"
 	});
 
-	a = $(document.createElement('a'));
+	var a = $(document.createElement('a'));
 	a.href='#';
 	a.click(function(){
 		$(this).replaceWith("<embed src=\"http://www.youtube.com/v/"+vid+"?version=3&autoplay=1\" type=\"application/x-shockwave-flash\" width=\""+w+"\" height=\""+h+"\" allowscriptaccess=\"always\"></embed>");return false;
