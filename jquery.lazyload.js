@@ -10,6 +10,9 @@
  *   http://www.appelsiini.net/projects/lazyload
  *
  * Version:  1.7.0
+ * 
+ * Tweaked for performance by: Amr Tj. Wallas
+ * Forked Project (https://github.com/TjWallas/YouTube-Lite-Embed)
  *
  */
 (function($, window) {
