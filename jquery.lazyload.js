@@ -48,26 +48,27 @@
         if (0 == settings.event.indexOf("scroll")) {
             $(settings.container).bind(settings.event, function(event) {
                 var counter = 0;
-                elements.each(function() {
-                    $this = $(this);
+                for(var i = 0; i < elements.length; i++) {
+					currentElement = elements[i];
+                    $this = $(currentElement);
                     if (settings.skip_invisible && !$this.is(":visible")) return;
-                    if ($.abovethetop(this, settings) ||
-                        $.leftofbegin(this, settings)) {
+                    if ($.abovethetop(currentElement, settings) ||
+                        $.leftofbegin(currentElement, settings)) {
                             /* Nothing. */
-                    } else if (!$.belowthefold(this, settings) &&
-                        !$.rightoffold(this, settings)) {
+                    } else if (!$.belowthefold(currentElement, settings) &&
+                        !$.rightoffold(currentElement, settings)) {
                             $this.trigger("appear");
                     } else {
                         if (++counter > settings.failure_limit) {
                             return false;
                         }
                     }
-                });
+                }
             });
         }
                 
-        this.each(function() {
-            var self = this;
+        for(var i=0; i < this.length; i++) {
+            var self = this[i];
             var $self = $(self);
             
             self.loaded = false;
@@ -111,7 +112,7 @@
                     }
                 });
             }
-        });
+        }
         
         /* Check if something appears when window is resized. */
         $window.bind("resize", function(event) {
