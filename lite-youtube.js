@@ -57,8 +57,6 @@ doc.on('click', '.lite > a', function(){
 		$(div).replaceWith("<embed src=\"http://www.youtube.com/v/"+div.id+"?version=3&autoplay=1\" type=\"application/x-shockwave-flash\" width=\""+div.style.width+"\" height=\""+div.style.height+"\" allowscriptaccess=\"always\"></embed>");return false;
 	});
 
-doc.ready(function() {	
-	YTLiteEmbed();
-});
+doc.ready(YTLiteEmbed);
 })(jQuery);
 
