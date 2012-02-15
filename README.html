@@ -1,0 +1,159 @@
+<h1>Overview</h1>
+
+<p>Designed with performance in mind, "YouTube Lite Embed" is a jQuery library that allows you to embed YouTube videos in a light-weight fashion that has minimum impact on the page initial load speed. This library is definitely aimed at YouTube embed freaks and targets pages that contain loads of embedded YouTube content.</p>
+
+<h1>Functionality</h1>
+
+<p>HTML embedded content <em>especially</em> flash content, takes a significant time to load which decreases the overall page load speed. As more embedded objects are added to the page, this could literally spell page load chaos. This library addresses this issue by not directly loading YouTube embedded content. Instead, video thumbnails and titles are fetched using the <a href="http://code.google.com/apis/youtube/2.0/reference.html">YouTube Data API</a> then placed in such a way that makes it look like the YouTube embedded player layout. Moreover with the aid of the <a href="http://www.appelsiini.net/projects/lazyload">jQuery lazy load plugin</a>, these fetched thumbnails are only rendered using Ajax when the user scrolls to see them thus, the thumbnails loading time is also eliminated.</p>
+
+<h1>Usage</h1>
+
+<ol>
+<li><p>import "jQuery" &amp; the "lazy load" plugin if you haven't:</p>
+
+<pre><code>&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.lazyload.min.js"&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>import the "YouTube Lite Embed" Plugin:</p>
+
+<pre><code>&lt;script type="text/javascript" src="lite-youtube-min.js"&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>Add the following CSS Rules:</p>
+
+<pre><code>&lt;style&gt;
+    div.lite {
+        position: relative; left: 0; top: 0
+    }
+    img.lite:hover {
+        background:url(http://lh5.googleusercontent.com/-oBFjswrosz4/TuHqainRc3I/AAAAAAAAAbE/t3rMQuSJdLA/s800/youtube-play-button-hover.png)
+    }
+&lt;/style&gt;
+</code></pre></li>
+<li><p>Finally, you can simply embed a youtube video anywhere using the following markup:</p>
+
+<pre><code>&lt;div class="lite" id="youtube_video_id" style="width:my_width;height:my_height;"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Where:</p>
+
+<ul><li><code>youtube_video_id</code> is the id of that video. (Typically, the value after 'v=' in the URL)</li>
+<li><code>my_width</code> and <code>my_height</code> are the width and height of the embedded player in either pixels (Ex: 360px) or percetage (Ex: 50%).</li></ul>
+
+<p><strong>Alternatively, you can install <a href="https://github.com/TjWallas/YouTube-Lite-Embed/raw/master/Chrome%20Extension/YouTube%20Minified%20Embed.crx">this chrome extension</a> that I coded which will automatically copy the aforementioned special markup code to your clipboard whenever you click it's icon whilst being at a youtube video page.</strong></p></li>
+</ol>
+
+<h1>Demos</h1>
+
+<ul>
+<li>A demo page consisting of 10 YouTube videos while using the lite embed library can be found <a href="http://eminemvirus2010.mypagerocks.com/demo-fast.html">here (fast embed demo)</a></li>
+<li>An equivalent demo page to it <strong>WITHOUT</strong> the library can be found <a href="http://eminemvirus2010.mypagerocks.com/demo-slow.html">here (slow embed demo)</a></li>
+</ul>
+
+<h1>Benchmarks</h1>
+
+<p>The best way to test it out is to check the demos above. You'll instantly feel the difference especially if you are a *nix user.</p>
+
+<blockquote>
+  <p>"There are three types of lies: lies, damned lies and benchmarks"</p>
+</blockquote>
+
+<p>That being said, let's get down to the results =)</p>
+
+<p>Without the lite embed library, the page took <strong>7.721s</strong> to fully load <em>without caching</em>. On the other hand, the page took ONLY <strong>1.263s</strong> to load using the library under the same benchmark configuration. <strong>This is 6.1x Faster !!!</strong>. (PS: this was only tested on a page that has 10 videos. Try it with more videos and be impressed)</p>
+
+<ul>
+<li><p>Benchmark summary <em>using the library</em>:</p>
+
+<table id="tableResults" class="pretty" align="center" border="1" cellpadding="10" cellspacing="0">
+                <tr>
+                    <th align="center" class="empty" valign="middle" style="border:1px white solid;"></th>
+                    <th align="center" class="empty" valign="middle" colspan="3"></th>
+                    <th align="center" class="border" valign="middle" colspan="3">Document Complete</th>
+                    <th align="center" class="border" valign="middle" colspan="3">Fully Loaded</th>
+                </tr>
+                <tr>
+                    <th align="center" class="empty" valign="middle"></th>
+                    <th align="center" valign="middle">Load Time</th>
+                    <th align="center" valign="middle">First Byte</th>
+                    <th align="center" valign="middle">Start Render</th>                                                                                                
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                </tr>
+                <tr>
+                    <td align="left" valign="middle">First View</td><td id="fvLoadTime" valign="middle">1.227s</td>
+                    <td id="fvTTFB" valign="middle">0.190s</td>
+                    <td id="fvStartRender" valign="middle">0.804s</td>
+                    <td id="fvDocComplete" class="border" valign="middle">1.227s</td>
+                    <td id="fvRequestsDoc" valign="middle">18</td>
+                    <td id="fvBytesDoc" valign="middle">75 KB</td>
+                    <td id="fvFullyLoaded" class="border" valign="middle"><font color="green"><strong>1.263s</strong></font></td>
+                    <td id="fvRequests" valign="middle">18</td>
+                    <td id="fvBytes" valign="middle">75 KB</td>
+                </tr>
+                                    <tr>
+                    <td align="left" class="even" valign="middle">Repeat View
+                     </td><td id="rvLoadTime" class="even" valign="middle">0.521s</td>
+<td id="rvTTFB" class="even" valign="middle">0.196s</td>
+<td id="rvStartRender" class="even" valign="middle">0.503s</td>
+<td id="rvDocComplete" class="even border" valign="middle">0.521s</td>
+<td id="rvRequestsDoc" class="even" valign="middle">1</td>
+<td id="rvBytesDoc" class="even" valign="middle">2 KB</td>
+<td id="rvFullyLoaded" class="even border" valign="middle">0.865s</td>
+<td id="rvRequests" class="even" valign="middle">12</td>
+<td id="rvBytes" class="even" valign="middle">6 KB</td>
+                </tr>
+                                    </table></li>
+<li><p>Benchmark summary <em>without the library</em>:</p>
+
+<table id="tableResults" class="pretty" align="center" border="1" cellpadding="10" cellspacing="0">
+                <tr>
+                    <th align="center" class="empty" valign="middle" style="border:1px white solid;"></th>
+                    <th align="center" class="empty" valign="middle" colspan="3"></th>
+                    <th align="center" class="border" valign="middle" colspan="3">Document Complete</th>
+                    <th align="center" class="border" valign="middle" colspan="3">Fully Loaded</th>
+                </tr>
+                <tr>
+                    <th align="center" class="empty" valign="middle"></th>
+                    <th align="center" valign="middle">Load Time</th>
+                    <th align="center" valign="middle">First Byte</th>
+                    <th align="center" valign="middle">Start Render</th>                                                                                                
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                    <th align="center" class="border" valign="middle">Time</th>
+                    <th align="center" valign="middle">Requests</th>
+                    <th align="center" valign="middle">Bytes In</th>
+                </tr>
+                <tr>
+                    <td align="left" valign="middle">First View
+                     </td><td id="fvLoadTime" valign="middle">0.947s</td>
+<td id="fvTTFB" valign="middle">0.198s</td>
+<td id="fvStartRender" valign="middle">0.000s</td>
+<td id="fvDocComplete" class="border" valign="middle">0.947s</td>
+<td id="fvRequestsDoc" valign="middle">3</td>
+<td id="fvBytesDoc" valign="middle">39 KB</td>
+<td id="fvFullyLoaded" class="border" valign="middle"><font color="red"><strong>7.721s</strong></font></td>
+<td id="fvRequests" valign="middle">28</td>
+<td id="fvBytes" valign="middle">602 KB</td>
+                </tr>
+                                    <tr>
+                    <td align="left" class="even" valign="middle">Repeat View
+                     </td><td id="rvLoadTime" class="even" valign="middle">0.556s</td>
+<td id="rvTTFB" class="even" valign="middle">0.149s</td>
+<td id="rvStartRender" class="even" valign="middle">0.000s</td>
+<td id="rvDocComplete" class="even border" valign="middle">0.556s</td>
+<td id="rvRequestsDoc" class="even" valign="middle">2</td>
+<td id="rvBytesDoc" class="even" valign="middle">6 KB</td>
+<td id="rvFullyLoaded" class="even border" valign="middle">0.962s</td>
+<td id="rvRequests" class="even" valign="middle">12</td>
+<td id="rvBytes" class="even" valign="middle">41 KB</td>
+                </tr>
+                                    </table></li>
+<li><p>Detailed results can be fount at <a href="http://www.webpagetest.org/result/120214_1Q_37TGK/">link1</a> and <a href="http://www.webpagetest.org/result/120214_2M_37TJ5/">link2</a> for the "Using the library" and "Without the library" scenarios respectively.</p></li>
+</ul>
+
+
