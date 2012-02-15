@@ -3,8 +3,8 @@
  *
  * Copyright (c) 2012 Amr Tj. Wallas
  *
- * Licensed under the MIT license:
- *   http://www.opensource.org/licenses/mit-license.php
+ * Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License:
+ *   http://creativecommons.org/licenses/by-nc-sa/3.0/
  *
  * Project Home:
  *   https://github.com/TjWallas/YouTube-Lite-Embed
