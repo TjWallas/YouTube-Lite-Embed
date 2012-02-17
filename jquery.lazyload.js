@@ -9,14 +9,10 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
-<<<<<<< HEAD
- * Version:  1.6.0-dev
-=======
  * Version:  1.7.0
  * 
  * Tweaked for performance by: Amr Tj. Wallas
  * Forked Project (https://github.com/TjWallas/YouTube-Lite-Embed)
->>>>>>> a118d6e... Updated doc.
  *
  */
 (function($) {
@@ -39,15 +35,7 @@
         if ("scroll" == settings.event) {
             $(settings.container).bind("scroll", function(event) {
                 var counter = 0;
-<<<<<<< HEAD
-                elements.each(function() {
-                    if ($.abovethetop(this, settings) ||
-                        $.leftofbegin(this, settings)) {
-                            /* Nothing. */
-                    } else if (!$.belowthefold(this, settings) &&
-                        !$.rightoffold(this, settings)) {
-                            $(this).trigger("appear");
-=======
+
                 for(var i = 0; i < elements.length; i++) {
 					currentElement = elements[i];
                     $this = $(currentElement);
@@ -58,36 +46,19 @@
                     } else if (!$.belowthefold(currentElement, settings) &&
                         !$.rightoffold(currentElement, settings)) {
                             $this.trigger("appear");
->>>>>>> 75135d6... Replaced usages of jQuery.each() with native for loops [Performance]
                     } else {
                         if (counter++ > settings.failurelimit) {
                             return false;
                         }
                     }
-<<<<<<< HEAD
-                });
-
-                /* Remove image from array so it is not looped next time. */
-                var temp = $.grep(elements, function(element) {
-                    return !element.loaded;
-                });
-                elements = $(temp);
-
-            });
-        }
-        
-        this.each(function() {
-            var self = this;            
-=======
                 }
             });
         }
                 
         for(var i=0; i < this.length; i++) {
             var self = this[i];
-            var $self = $(self);
-            
->>>>>>> 75135d6... Replaced usages of jQuery.each() with native for loops [Performance]
+            var $self = $(self);            
+
             self.loaded = false;
             
             /* When appear is triggered load original image. */
