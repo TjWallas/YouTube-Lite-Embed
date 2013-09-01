@@ -57,7 +57,7 @@ function YTLiteEmbed() {
         a.href = '#';
         button = document.createElement('img');
         button.class = 'lite';
-        button.src = '//lh4.googleusercontent.com/-QCeB6REIFlE/TuGUlY3N46I/AAAAAAAAAaI/9-urEUtpKcI/s800/youtube-play-button.png';
+        button.src = 'http://lh4.googleusercontent.com/-QCeB6REIFlE/TuGUlY3N46I/AAAAAAAAAaI/9-urEUtpKcI/s800/youtube-play-button.png';
         button.style.position = 'absolute';
         button.style.top = Math.round((myDiv.clientHeight - 51) / 2) + 'px';
         button.style.left = Math.round((myDiv.clientWidth - 71) / 2) + 'px';
