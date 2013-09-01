@@ -52,7 +52,7 @@ function YTLiteEmbed() {
       'class': 'lazy',
       'data-original': 'http://img.youtube.com/vi/' + vid + '/0.jpg',
       'width': w,
-      'height': h,
+      'height': h
     });
     //img.css({'position': 'relative', 'top': '0', 'left': '0' });
 
